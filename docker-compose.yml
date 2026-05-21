@@ -1,4 +1,6 @@
 services:
   tumblr_scraper:
     volumes:
-      -./output:/tumblr_stuff/output
+      - ./output:/tumblr_stuff/output
+    build:
+      dockerfile: ./Dockerfile
