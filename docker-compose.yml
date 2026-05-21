@@ -4,3 +4,4 @@ services:
       - ./output:/tumblr_stuff/output
     build:
       dockerfile: ./Dockerfile
+    restart: unless-stopped
