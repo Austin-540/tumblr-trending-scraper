@@ -27,7 +27,7 @@ while (TRUE) {
   
   output_with_date <- paste0(now(), "^", output)
   
-  write(output_with_date, file="trending_data.txt", append = TRUE)
+  write(output_with_date, file="output/trending_data.txt", append = TRUE)
   
   
   Sys.sleep(14400)
