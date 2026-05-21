@@ -1,0 +1,4 @@
+services:
+  tumblr_scraper:
+    volumes:
+      -./output:/tumblr_stuff/output
