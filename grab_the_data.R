@@ -7,6 +7,7 @@ while (TRUE) {
     html_text2() %>%
     str_detect("explore|trending") %>%
     if (.) {
+      Sys.sleep(14400)
       stop("Hold up! The robots.txt file now mentions the trending page... check if this is still allowed")
     }
   
