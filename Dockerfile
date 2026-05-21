@@ -1,7 +1,6 @@
-FROM r-base:4.6.0
+FROM rocker/tidyverse:4.6.0
 COPY . /tumblr_stuff
 WORKDIR /tumblr_stuff
-RUN R -e "install.packages('tidyverse')"
 RUN R -e "install.packages('jsonlite')"
 RUN R -e "install.packages('rvest')"
 CMD [ "Rscript", "grab_the_data.R" ]
