@@ -1,5 +1,5 @@
 library(tidyverse)
-library(ggbump)
+library(ggbump) #This package is no longer on CRAN, so it will need to be manually installed from a CRAN archived version
 
 txt_data <- read.csv("output/trending_data.txt", header=FALSE)
 
