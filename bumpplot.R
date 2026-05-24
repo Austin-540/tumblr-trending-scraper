@@ -38,14 +38,14 @@ for (col_num in 4:13) {
 
 trending %>%
   filter(tag %in% currently_trending) %>% #Only get the currently trending tags because otherwise its wayyyyy too hard to read
-  ggplot(aes(date, position, color=tag, group=tag)) +
+  ggplot(aes(date, position, color=reorder(tag, +position), group=tag)) +
   geom_bump(linewidth=2.5, smooth = 15) +
   theme_minimal() +
   labs(y = "Rank",
        color = "Tag",
        x = NULL,
        title = "How did the current tumblr trending tags get to where they are now?",
-       caption = "Source: Trending rankings scraped from the logged-out tumblr trending page from 21/5/26 to 23/5/26"
+       caption = "Source: Trending rankings scraped from the logged-out tumblr trending page"
   ) +
   scale_y_continuous(
     breaks = 1:10,
