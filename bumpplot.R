@@ -36,9 +36,23 @@ for (col_num in 4:13) {
   currently_trending <- c(currently_trending, (txt_data[nrow(txt_data), col_num]))
 }
 
+trending <- trending %>%
+  mutate(final_position = case_when(
+    txt_data$num1[nrow(txt_data)] == tag ~ 1,
+    txt_data$num2[nrow(txt_data)] == tag ~ 2,
+    txt_data$num3[nrow(txt_data)] == tag ~ 3,
+    txt_data$num4[nrow(txt_data)] == tag ~ 4,
+    txt_data$num5[nrow(txt_data)] == tag ~ 5,
+    txt_data$num6[nrow(txt_data)] == tag ~ 6,
+    txt_data$num7[nrow(txt_data)] == tag ~ 7,
+    txt_data$num8[nrow(txt_data)] == tag ~ 8,
+    txt_data$num9[nrow(txt_data)] == tag ~ 9,
+    txt_data$num10[nrow(txt_data)] == tag ~ 10,
+    TRUE ~ -1))
+
 trending %>%
   filter(tag %in% currently_trending) %>% #Only get the currently trending tags because otherwise its wayyyyy too hard to read
-  ggplot(aes(date, position, color=reorder(tag, +position), group=tag)) +
+  ggplot(aes(date, position, color=reorder(tag, +final_position), group=tag)) +
   geom_bump(linewidth=2.5, smooth = 15) +
   theme_minimal() +
   labs(y = "Rank",
